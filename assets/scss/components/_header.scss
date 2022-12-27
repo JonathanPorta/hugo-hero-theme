@@ -5,11 +5,18 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
-  height: 60px;
+  height: 150px;
   .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    @include media-breakpoint-up(xs) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @include media-breakpoint-up(lg) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
   }
   &.header-absolute {
     position: absolute;

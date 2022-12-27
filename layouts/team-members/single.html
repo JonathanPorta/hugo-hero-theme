@@ -1,0 +1,32 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-team-members-single{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "photo" .Params.photo "content" .)}}
+<div class="container pt-4 pt-md-10 pb-4 pb-md-10">
+  <div class="row justify-content-start">
+    <div class="col-12 col-md-12">
+      <div class="team-member team-member-single">
+        {{ if .Params.photo }}
+        <div class="team-member-photo polaroid">
+          <a href="{{ .Params.photo | relURL }}"><img src="{{ .Params.photo | relURL }}" alt="{{ .Title }}" /></a>
+        </div>
+        {{ end }}
+        <div class="content">{{.Content}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "footer_js" }}
+{{ $library := resources.Get "js/libs/library.js" }}
+{{ $teamMembers := resources.Get "js/pages/team-members.js" }}
+{{ $teamMembersJS := slice $library $teamMembers |resources.Concat "js/team-members.js" }}
+{{ if .Site.IsServer }}
+  <script type="text/javascript" src="{{ $teamMembersJS.RelPermalink }}"></script>
+  {{ else }}
+  <script type="text/javascript" src="{{ ($teamMembersJS | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

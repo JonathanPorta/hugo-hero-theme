@@ -1,0 +1,13 @@
+<div class="team-member team-member-summary">
+  <div class="team-member-content">
+    <h2 class="team-member-title">
+      <a href="{{ .Permalink }}">{{ .Title }} <p><i>{{.Params.heroSubHeading}}</p></i></a>
+    </h2>
+    {{ .Content | truncate 269 "..." }}
+  </div>
+  {{ if .Params.thumbnail }}
+    <div class="team-member-thumbnail polaroid">
+      <a href="{{ .Permalink }}" title="{{ .Title }}"><img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" title="{{ .Title }}"/></a>
+    </div>
+  {{ end }}
+</div>

@@ -5,6 +5,11 @@
       <h1>{{ .heading }}</h1>
       <p>{{ .subheading }}</p>
     </div>
+    {{ if .photo }}
+    <div class="team-member-photo circle-polaroid">
+      <img src="{{ .photo | relURL }}" alt="{{ .heading }}" />
+    </div>
+  {{ end }}
     <div class="hero-down">
       <a href="#home">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" alt="Scroll Down">
