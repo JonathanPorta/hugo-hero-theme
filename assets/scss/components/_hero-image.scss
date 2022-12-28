@@ -25,6 +25,14 @@
       display: flex;
     }
   }
+  .hero-content {
+    @include media-breakpoint-up(xs) {
+      display: none;
+    }
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
 
   .row {
     height: inherit;

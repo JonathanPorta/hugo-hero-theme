@@ -9,7 +9,10 @@
   .sub-footer-inner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     @include media-breakpoint-up(md) {
       flex-direction: row;
     }
@@ -41,7 +44,7 @@
           font-weight: bold;
           color: #ffffff;
         }
-        &.zerostatic {
+        &.attribution {
           a {
             color: #ffffff;
           }

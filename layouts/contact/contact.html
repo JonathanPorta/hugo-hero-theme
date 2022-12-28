@@ -3,45 +3,38 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-<div class="intro intro-small">
-  <div class="container">
+{{ partial "hero-contact.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .Params.content)}}
+{{/*  <div class="intro intro-small">
+  <div class="container pt-6 pt-md-10">
     <div class="row">
       <div class="col-12">
         <h1>{{ .Title }}</h1>
       </div>
     </div>
   </div>
-</div>
+</div>  */}}
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-8">
+    <div class="col-6 col-md-6" style="">
+      <a id="contact-details"><h1 class="mt-4">Our Contact Details</h1></a>
       {{ .Content }}
+
       <ul>
-        {{ if .Site.Data.contact.phone }}
-        <li><strong>Phone: </strong>{{ .Site.Data.contact.phone }}</li>
-        {{ end }}
-        {{ if .Site.Data.contact.email }}
-        <li><strong>Email: </strong><a href="mailto:{{ .Site.Data.contact.email }}">
-            {{ .Site.Data.contact.email }}</a></li>
-        {{ end }}
-        {{ if .Site.Data.contact.address }}
-        <li style="white-space: pre-wrap;"><strong>Address: </strong><br>{{ .Site.Data.contact.address }}</li>
-        {{ end }}
-      </ul>
-      {{ if .Site.Data.contact.hours }}
-      <h4 class="mt-4">Business Hours</h4>
-      <table class="table table-sm opening-hours-table">
-        {{ range .Site.Data.contact.hours }}
-        <tr>
-          <td class="day font-weight-bold">{{ .day }}</td>
-          <td class="opens">{{ .open }}</td>
-          <td>-</td>
-          <td class="closes">{{ .close }}</td>
-        </tr>
-        {{ end }}
-      </table>
-      {{ end }}
+        <p><li style="font-size: 1.5em;"><i class="pr-2 icon ion-md-phone-portrait"></i><a href="tel://406-670-2596">+1-406-670-2596</a></li></p>
+          <p><li style="font-size: 1.5em;"><i class="pr-2 icon ion-md-mail"></i><a href="mailto:andras@sentineltbs.com">andras@sentineltbs.com</a></li></p>
+            <p><li style="font-size: 1.5em;"><i class="pr-2 icon ion-md-map"></i><a href="https://www.google.com/maps?ll=45.776743,-108.540108&z=20&t=m&hl=en&gl=US&mapclient=embed" target="_BLANK">928 Broadwater Ave., Suite 242</a></li></p>
+    </ul>
+    </div>
+    <div class="col-6 col-md-6" style="">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d347.84036612489695!2d-108.54010820062904!3d45.7767427365087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1672223109200!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 col-md-12" style="min-height: 800px;">
+      <a id="scheduling"><h1 class="mt-4">Scheduling</h1></a>
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ttHjrd4nLqqBP7qAw_cisNrHJlDgU5cl2YDvUz_QLySnLh3I6Q0JhKyQAAw2pTLeFnTnbUsfp?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+
+      </div>
+    </div>
 </div>
 {{ end }}

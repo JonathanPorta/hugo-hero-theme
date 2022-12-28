@@ -62,6 +62,7 @@
 @import 'components/feature';
 @import 'components/hero-image';
 @import 'components/bg';
+@import 'components/reviews';
 
 // Pages
 @import 'pages/team-members/page-team-members-list';
@@ -72,6 +73,11 @@
 @import 'pages/services/service-summary';
 @import 'pages/work/work-summary';
 @import 'pages/work/page-work-single';
+@import 'pages/work/page-work-list';
+
+@import 'pages/xero/xero-summary';
+@import 'pages/xero/page-xero-single';
+@import 'pages/xero/page-xero-list';
 
 // Display breakpoints for DEV
 // body:after {

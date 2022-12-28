@@ -6,7 +6,10 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
+    align-items: center;
+    align-content: center;
+
     @include media-breakpoint-up(sm) {
       justify-content: space-between;
       flex-direction: row;
@@ -30,8 +33,10 @@
     padding: 0;
     flex: 1;
     li {
-      display: block;
+      display: inline-block;
+
       margin-right: 10px;
+      margin-left: 10px;
       color: lighten($secondary, 50%);
       font-size: 0.9rem;
       line-height: 1.8;
@@ -51,6 +56,16 @@
         display: none;
         @include media-breakpoint-up(md) {
           display: inline-block;
+        }
+        a {
+          text-decoration: none;
+          pointer-events: none;
+          cursor: default;
+          &:hover {
+            text-decoration: none;
+            pointer-events: none;
+            cursor: default;
+          }
         }
       }
     }

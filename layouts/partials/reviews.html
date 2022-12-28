@@ -1,0 +1,63 @@
+<div id="review"></div>
+<script type="text/javascript">
+  function createReviewWidget() {
+    // define the URL to the JSON file
+    const jsonUrl = 'features/data/reviews.json';
+
+    // fetch the JSON file
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        // transform the data into the desired format
+        const reviews = data.map(review => ({
+          name: review.name,
+          text: review.text,
+          date: review.date,
+          comments: review.comments
+        }));
+
+        // define the interval in seconds
+        const interval = 7;
+
+        // create a variable to keep track of the current review
+        let currentReview = 0;
+
+        // create a function to display the current review
+        function displayReview() {
+          // get the review element
+          const reviewEl = document.getElementById('review');
+
+          // get the current review
+          const review = reviews[currentReview];
+
+          // update the review text
+          reviewEl.innerHTML = `
+            <div class="review-container">
+              <div class="review-header">
+                <div class="review-name">${review.name}</div>
+                <div class="review-date">${review.date}</div>
+              </div>
+              <div class="review-text">${review.text}</div>
+              <div class="review-footer">
+                <div class="review-logo"><a href="https://www.facebook.com/sentineltbs" target="_BLANK"><img src="/images/logo/facebook-logo-black.svg" title="Facebook" alt="Facebook" /></a></div>
+                <div class="review-links"><a href="https://www.facebook.com/sentineltbs/reviews" target="_BLANK">More Reviews</a></div>
+              </div>
+            </div>
+          `;
+
+          // move to the next review
+          currentReview = (currentReview + 1) % reviews.length;
+        }
+
+        // display the first review
+        displayReview();
+
+        // set the interval to display the next review
+        setInterval(displayReview, interval * 1000);
+      });
+  }
+
+  // create the review widget
+  createReviewWidget();
+
+</script>
