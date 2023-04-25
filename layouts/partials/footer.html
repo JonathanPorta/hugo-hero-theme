@@ -6,9 +6,11 @@
           {{ if .Site.Data.social }}
           <ul class="social">
               {{ range .Site.Data.social }}
-                  <li><a href="{{ .link }}" target="blank"><img width="20" height="20" src="{{ .image | relURL }}" title="{{ .name }}" alt="{{ .name }}" /></a></li>
+              <li><a href="/xero"><img height="50" src="/images/logo/sentinel-logomark-hearts-xero-all-white-no-llc.svg" title="Xero Expertise" alt="Xero Expertise" /></a></li>
+              {{/*  <li><a href="{{ .link }}" target="blank"><img width="40" height="40" src="{{ .image | relURL }}" title="{{ .name }}" alt="{{ .name }}" /></a></li>  */}}
               {{ end }}
           </ul>
+
           {{ end }}
           <ul class="footer-menu">
             <li><a href="{{ .Site.BaseURL }}">Home</a></li>
