@@ -14,6 +14,27 @@
         </div>
         {{ end }}
         <div class="content">{{.Content}}</div>
+
+        {{ if or .Params.email .Params.linkedin }}
+        <div class="contact-info">
+          <h2 class="team-member-title">{{ with .Params.contactHeading }}{{ . }}{{ else }}Contact Information{{ end }}</h3>
+          <p>Would you like to get in touch with {{ .Title }}?</p>
+          <div class="contact-links">
+            {{ if .Params.email }}
+            <div class="contact-item">
+              <i class="icon ion-md-mail"></i>
+              <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a>
+            </div>
+            {{ end }}
+            {{ if .Params.linkedin }}
+            <div class="contact-item">
+              <i class="icon ion-logo-linkedin"></i>
+              <a href="{{ .Params.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
       </div>
     </div>
   </div>
